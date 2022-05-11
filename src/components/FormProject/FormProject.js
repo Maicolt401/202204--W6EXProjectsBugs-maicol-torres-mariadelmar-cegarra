@@ -6,6 +6,7 @@ import {
   addProjectActionCreator,
   updateProjectActionCreator,
 } from "../../redux/features/projects/projectsSlice";
+import { openModalActionCreator } from "../../redux/features/ui/uiSlice";
 
 const FormProject = ({ id }) => {
   const dispatch = useDispatch();
@@ -39,7 +40,8 @@ const FormProject = ({ id }) => {
         name,
       };
 
-      dispatch(addProjectActionCreator());
+      dispatch(addProjectActionCreator(newProject));
+      dispatch(openModalActionCreator("PROJECT CREATED"));
     }
 
     navigate("/projects");
